@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "server": "nodemon app.js --exec babel-node",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "execute-db": "sequelize-cli db:create && sequelize-cli db:migrate",
+    "generate-table": "sequelize-cli model:generate --name author --attributes pen_name:string,profileId:integer,userId:integer && sequelize-cli model:generate --name book --attributes title:string,description:string,year:integer,page:integer,stock:integer,price:integer,image:string,status:string,authorId:integer,userId:integer,genreId:integer && sequelize-cli model:generate --name profile --attributes fullname:string,image:string,age:integer,nationality:string,gender:string && sequelize-cli model:generate --name genre --attributes name:string,userId:integer && sequelize-cli model:generate --name user --attributes username:string,email:string,password:string,role:string,profileId:integer"
   },
   "keywords": [],
   "author": "",
